@@ -33,7 +33,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public void eliminar(Long id) {
         this.usuarioRepository.deleteById(id);
     }
