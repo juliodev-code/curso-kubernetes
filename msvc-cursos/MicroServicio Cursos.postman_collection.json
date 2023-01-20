@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "60f5045f-c78e-49a8-b590-88d4d571afc7",
+		"_postman_id": "95156dd0-2101-4860-8f5a-71f80ad543c9",
 		"name": "MicroServicio Cursos",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -46,6 +46,30 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"nombre\":\"Docker\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002",
+					"host": [
+						"localhost"
+					],
+					"port": "8002"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Curso Test - Insertar curso sin proveer informacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

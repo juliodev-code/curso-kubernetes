@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "945c064b-74f7-4883-b993-fecafd13303c",
+		"_postman_id": "7a9b0583-fb8e-4431-972d-725a9564150e",
 		"name": "Microservicio Usuarios",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -31,6 +31,33 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"nombre\":\"Maria\",\r\n    \"email\":\"maria.doe@correo.com\",\r\n    \"password\":\"1234567\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Usuario - Test Validation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\" \",\r\n    \"email\":\" \",\r\n    \"password\":\" \"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
