@@ -10,10 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 public class UsuarioController {
@@ -37,6 +34,12 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity<?> crear(@Valid @RequestBody Usuario usuario, BindingResult validationResult){
+        if(this.service.porEmail(usuario.getEmail()).isPresent()){
+            return ResponseEntity.badRequest()
+                    .body(Collections
+                            .singletonMap("mensaje", "Ya existe un usuario con ese correo electromico"));
+        }
+
         if(validationResult.hasErrors()){
             return validar(validationResult);
         }
@@ -52,6 +55,13 @@ public class UsuarioController {
         Optional<Usuario> o = this.service.porId(id);
         if(o.isPresent()){
             Usuario usuarioDB = o.get();
+
+            if(!usuario.getEmail().equalsIgnoreCase(usuarioDB.getEmail()) && this.service.porEmail(usuario.getEmail()).isPresent()){
+                return ResponseEntity.badRequest()
+                        .body(Collections
+                                .singletonMap("mensaje", "Ya existe un usuario con ese correo electromico"));
+            }
+
             usuarioDB.setNombre(usuario.getNombre());
             usuarioDB.setEmail(usuario.getEmail());
             usuarioDB.setPassword(usuario.getPassword());
