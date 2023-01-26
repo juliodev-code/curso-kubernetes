@@ -40,6 +40,11 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Optional<Usuario> porEmail(String email) {
-        return this.usuarioRepository.findByEmail(email);
+        return this.usuarioRepository.porEmail(email);
+    }
+
+    @Override
+    public boolean existePorEmail(String email) {
+        return this.usuarioRepository.existsByEmail(email);
     }
 }

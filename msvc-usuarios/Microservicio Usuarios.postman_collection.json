@@ -84,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n    {   \r\n        \"nombre\": \"Pepa\",\r\n        \"email\": \"andres.guz@correo.com\",\r\n        \"password\": \"12345\"\r\n    }",
+					"raw": "\r\n    {   \r\n        \"nombre\": \"Josefa2\",\r\n        \"email\": \"josefa.doe@correo.com\",\r\n        \"password\": \"12345\"\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
