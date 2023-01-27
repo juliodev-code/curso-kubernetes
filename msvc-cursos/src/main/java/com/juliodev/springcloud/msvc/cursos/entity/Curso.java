@@ -1,11 +1,9 @@
 package com.juliodev.springcloud.msvc.cursos.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="cursos")
@@ -17,6 +15,13 @@ public class Curso {
 
     @NotEmpty
     private String nombre;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CursoUsuario> cursoUsuarios;
+
+    public Curso(){
+        cursoUsuarios = new ArrayList<>();
+    }
 
     public Long getId() {
         return id;
@@ -32,5 +37,21 @@ public class Curso {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public void addCursoUsuario(CursoUsuario cursoUsuario){
+        this.cursoUsuarios.add(cursoUsuario);
+    }
+
+    public void removeCursoUsuario(CursoUsuario cursoUsuario){
+        this.cursoUsuarios.remove(cursoUsuario);
+    }
+
+    public List<CursoUsuario> getCursoUsuarios() {
+        return cursoUsuarios;
+    }
+
+    public void setCursoUsuarios(List<CursoUsuario> cursoUsuarios) {
+        this.cursoUsuarios = cursoUsuarios;
     }
 }
