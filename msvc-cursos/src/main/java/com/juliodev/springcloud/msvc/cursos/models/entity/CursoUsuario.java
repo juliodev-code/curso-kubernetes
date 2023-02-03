@@ -1,4 +1,4 @@
-package com.juliodev.springcloud.msvc.cursos.entity;
+package com.juliodev.springcloud.msvc.cursos.models.entity;
 
 import javax.persistence.*;
 

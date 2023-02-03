@@ -1,6 +1,6 @@
 package com.juliodev.springcloud.msvc.cursos.services;
 
-import com.juliodev.springcloud.msvc.cursos.entity.Curso;
+import com.juliodev.springcloud.msvc.cursos.models.entity.Curso;
 import com.juliodev.springcloud.msvc.cursos.repositories.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
