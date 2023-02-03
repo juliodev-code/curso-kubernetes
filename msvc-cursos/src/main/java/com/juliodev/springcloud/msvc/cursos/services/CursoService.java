@@ -1,5 +1,6 @@
 package com.juliodev.springcloud.msvc.cursos.services;
 
+import com.juliodev.springcloud.msvc.cursos.models.Usuario;
 import com.juliodev.springcloud.msvc.cursos.models.entity.Curso;
 
 import java.util.List;
@@ -10,4 +11,9 @@ public interface CursoService {
     Optional<Curso> porId(Long id);
     Curso guardar(Curso curso);
     void eliminar(Long id);
+
+    //metodos para modificar en remoto
+    Optional<Usuario> asignarUsuario(Usuario usuario, Long cursoId);
+    Optional<Usuario> crearUsuario(Usuario usuario, Long cursoId);
+    Optional<Usuario> eliminarUsuario(Usuario usuario, Long cursoId);
 }
