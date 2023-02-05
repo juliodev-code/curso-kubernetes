@@ -1,5 +1,6 @@
 package com.juliodev.springcloud.msvc.cursos.services;
 
+import com.juliodev.springcloud.msvc.cursos.clients.UsuarioClientRest;
 import com.juliodev.springcloud.msvc.cursos.models.Usuario;
 import com.juliodev.springcloud.msvc.cursos.models.entity.Curso;
 import com.juliodev.springcloud.msvc.cursos.repositories.CursoRepository;
@@ -16,6 +17,8 @@ public class CursoServiceImpl implements CursoService {
     @Autowired
     private CursoRepository repository;
 
+    @Autowired
+    private UsuarioClientRest client;
 
     @Override
     @Transactional(readOnly = true)
