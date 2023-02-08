@@ -26,13 +26,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8002/4",
+					"raw": "localhost:8002/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8002",
 					"path": [
-						"4"
+						"1"
 					]
 				}
 			},
@@ -63,6 +63,34 @@
 			"response": []
 		},
 		{
+			"name": "Crear Usuario en Cursos Microservicio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Pedro\",\r\n    \"email\":\"pedro.roe@correo.com\",\r\n    \"password\":\"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/crear-usuario/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"crear-usuario",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Post Curso Test - Insertar curso sin proveer informacion",
 			"request": {
 				"method": "POST",
@@ -87,7 +115,7 @@
 			"response": []
 		},
 		{
-			"name": "Post Curso Copy",
+			"name": "Actualizar Curso",
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -114,7 +142,63 @@
 			"response": []
 		},
 		{
-			"name": "DeleteCurso",
+			"name": "Asignar Usuario a Curso",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 6,\r\n    \"nombre\": \"Josefa\",\r\n    \"email\": \"josefa.doe@correo.com\",\r\n    \"password\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/asignar-usuario/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"asignar-usuario",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Usuario de Curso",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 6,\r\n    \"nombre\": \"Josefa\",\r\n    \"email\": \"josefa.doe@correo.com\",\r\n    \"password\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8002/eliminar-usuario/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"eliminar-usuario",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Curso",
 			"request": {
 				"method": "DELETE",
 				"header": [],
