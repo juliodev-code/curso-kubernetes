@@ -121,7 +121,7 @@ public class CursoController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/eliminar-usuario/{id}")
+    @DeleteMapping("/eliminar-curso-usuario/{id}")
     public ResponseEntity<?>eliminarCursoUsuarioPorId(@PathVariable Long id){
         this.service.eliminarCursoUsuarioPorId(id);
         return ResponseEntity.noContent().build();
