@@ -1,4 +1,5 @@
-FROM openjdk:11.0.16
+#we create a reference from the base image
+FROM adoptopenjdk/openjdk11:jdk-11.0.16.1_1-slim as builder
 
 WORKDIR /app/msvc-usuarios
 
@@ -20,6 +21,13 @@ COPY ./msvc-usuarios/src/ ./src
 
 RUN ./mvnw clean package -DskipTests
 
+#The image will be build with the last from
+FROM adoptopenjdk/openjdk11:jdk-11.0.16.1_1-slim
+
+WORKDIR /app
+
+COPY --from=builder /app/msvc-usuarios/target/msvc-usuarios-0.0.1-SNAPSHOT.jar .
+
 EXPOSE 8001
 
-ENTRYPOINT ["java", "-jar", "./target/msvc-usuarios-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "msvc-usuarios-0.0.1-SNAPSHOT.jar"]
