@@ -27,7 +27,7 @@ FROM adoptopenjdk/openjdk11:jdk-11.0.16.1_1-slim
 WORKDIR /app
 RUN mkdir ./logs
 COPY --from=builder /app/msvc-usuarios/target/msvc-usuarios-0.0.1-SNAPSHOT.jar .
-
-EXPOSE 8001
+ENV PORT 8000
+EXPOSE $PORT
 
 CMD ["java", "-jar", "msvc-usuarios-0.0.1-SNAPSHOT.jar"]
