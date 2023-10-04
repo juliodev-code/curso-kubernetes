@@ -6,6 +6,7 @@ import org.juliodev.springcloud.msvc.usuarios.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -23,14 +24,21 @@ public class UsuarioController {
     @Autowired
     private ApplicationContext context;
 
+    @Autowired
+    private Environment env;
+
     @GetMapping("/crash")
     public void crash(){
         ((ConfigurableApplicationContext)this.context).close();
     }
 
     @GetMapping
-    public Map<String, List<Usuario>>  listar(){
-        return Collections.singletonMap("users", this.service.listar());
+    public ResponseEntity<?>  listar(){
+        Map<String,Object> body = new HashMap<>();
+        body.put("users", this.service.listar());
+        body.put("podInfo", this.env.getProperty("MY_POD_NAME") + ": " + this.env.getProperty("MY_POD_IP"));
+        //return Collections.singletonMap();
+        return ResponseEntity.ok(body);
     }
 
     @GetMapping("/{id}")
