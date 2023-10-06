@@ -9,6 +9,9 @@ data:
   #username: root
   #password: sasa
   curso_url: msvc-cursos:8002
+  application.yaml: |-
+    config:
+      texto: Configurando Ambiente por defecto
 ---
 apiVersion: v1
 kind: ConfigMap
