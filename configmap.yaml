@@ -12,6 +12,20 @@ data:
   application.yaml: |-
     config:
       texto: Configurando Ambiente por defecto
+    ---
+    spring:
+      config:
+        activate:
+          on-profile: dev
+    config:
+      texto: Configurando el ambiente de desarrollo
+    ---
+    spring:
+      config:
+        activate:
+          on-profile: prod
+    config:
+      texto: Configurando el ambiente de produccion
 ---
 apiVersion: v1
 kind: ConfigMap
