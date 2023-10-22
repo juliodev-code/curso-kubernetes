@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: msvc-cursos #colocamos el spring.application.name hacia donde iran las rutas
+          uri: lb://msvc-cursos
+          predicates:
+            - Path=/api/cursos/** #Es la ruta oficial que llevara hacia el servicio de microservicio cursos
+          filters:
+            - StripPrefix=2 #Indica los niveles de la ruta asignada como la ruta es: /api/cursos/ = 2
+        - id: msvc-usuarios
+          uri: lb://msvc-usuarios
+          predicates:
+            - Path=/api/usuarios/**
+          filters:
+            - StripPrefix=2
